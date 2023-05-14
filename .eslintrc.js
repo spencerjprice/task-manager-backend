@@ -9,19 +9,7 @@ module.exports = {
         sourceType: 'module',
         project: './tsconfig.json',
     },
-    plugins: ['@typescript-eslint', 'prettier'],
-    overrides: [
-        {
-            files: ['*.ts', '*.tsx'],
-            extends: [
-                'plugin:@typescript-eslint/recommended',
-                'plugin:@typescript-eslint/recommended-requiring-type-checking',
-            ],
-            parserOptions: {
-                project: ['./tsconfig.json'],
-            },
-        },
-    ],
+    plugins: ['@typescript-eslint', 'prettier', 'jest'],
     extends: [
         'airbnb-base',
         'plugin:@typescript-eslint/eslint-recommended',
