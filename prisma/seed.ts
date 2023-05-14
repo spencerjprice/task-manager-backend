@@ -14,8 +14,8 @@ async function main() {
             .map(async () => {
                 await prisma.task.create({
                     data: {
-                        title: faker.lorem.sentence(),
-                        description: faker.lorem.paragraph(),
+                        title: faker.music.songName(),
+                        description: faker.lorem.paragraph({ min: 3, max: 7 }),
                         dueDate: faker.date.soon({ days: 30 }),
                     },
                 });

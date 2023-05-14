@@ -30,11 +30,19 @@ export class AppController {
         return this.appService.createTask(body);
     }
 
-    @Put()
+    @Put(':id')
     @ApiOperation({ summary: 'Update a task' })
+    @ApiParam({
+        name: 'id',
+        type: 'string',
+        description: 'The id of the task you want to update',
+    })
     @ApiResponse({ status: 200, description: 'The updated task' })
-    updateTask(@Body() body: Partial<TaskDto>): Promise<Task> {
-        return this.appService.updateTask(body);
+    updateTask(
+        @Param('id') id: string,
+        @Body() body: Partial<TaskDto>,
+    ): Promise<Task> {
+        return this.appService.updateTask(+id, body);
     }
 
     @Delete(':id')
